@@ -1,0 +1,29 @@
+# Stock Portfolio Tracker
+
+portfolio = {}
+n = int(input("How many stocks do you want to add? "))
+
+for i in range(n):
+    stock_name = input("Enter Stock Name: ").upper()
+    stock_price = float(input("Enter Stock Price: "))
+    quantity = int(input("Enter Quantity: "))
+
+    portfolio[stock_name] = stock_price * quantity
+
+print("\n----- Portfolio Report -----")
+
+total_value = 0
+
+for stock, value in portfolio.items():
+    print(stock, ":", value)
+    total_value += value
+
+print("Total Portfolio Value =", total_value)
+
+with open("portfolio_report.txt", "w") as file:
+    file.write("Portfolio Report\n")
+    for stock, value in portfolio.items():
+        file.write(f"{stock}: {value}\n")
+    file.write(f"\nTotal Portfolio Value: {total_value}")
+
+print("Report saved successfully!")
