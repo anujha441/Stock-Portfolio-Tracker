@@ -1,0 +1,33 @@
+# Stock Portfolio Tracker using Class
+
+class Stock:
+    def __init__(self, name, price, quantity):
+        self.name = name
+        self.price = price
+        self.quantity = quantity
+
+    def investment_value(self):
+        return self.price * self.quantity
+
+
+name = input("Enter Stock Name: ")
+price = float(input("Enter Stock Price: "))
+quantity = int(input("Enter Quantity: "))
+
+stock = Stock(name, price, quantity)
+
+total = stock.investment_value()
+
+print("\n----- Investment Summary -----")
+print("Stock Name:", stock.name)
+print("Stock Price:", stock.price)
+print("Quantity:", stock.quantity)
+print("Total Investment Value:", total)
+
+with open("investment_report.txt", "w") as file:
+    file.write(f"Stock Name: {stock.name}\n")
+    file.write(f"Stock Price: {stock.price}\n")
+    file.write(f"Quantity: {stock.quantity}\n")
+    file.write(f"Total Investment Value: {total}")
+
+print("Report saved successfully!")
