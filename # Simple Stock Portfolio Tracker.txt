@@ -1,0 +1,17 @@
+# Simple Stock Portfolio Tracker
+
+stock = input("Enter Stock Name: ")
+price = float(input("Enter Price per Share: "))
+shares = int(input("Enter Number of Shares: "))
+
+total_value = price * shares
+
+print("\nStock:", stock)
+print("Total Portfolio Value:", total_value)
+
+f = open("portfolio.txt", "w")
+f.write("Stock Name: " + stock + "\n")
+f.write("Total Value: " + str(total_value))
+f.close()
+
+print("Data saved successfully!")
